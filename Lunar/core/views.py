@@ -30,7 +30,7 @@ def loginPage(request):
             return redirect('home')
         else:
             messages.error(request, 'Username or password does not exist')
-    context = {}
+    context = {'page':'form'}
     return render(request, 'core/login.html', context)
 
 
@@ -39,15 +39,16 @@ def register(request):
     if request.method == 'POST':
         form = UserForm(request.POST)
         if form.is_valid():
-            user = form.save(commit=False)
-            user.username = user.username.lower()
-            user.save()
+            user = form.save(commit=True)
             login(request,user)
             return redirect('home')
         else:
             messages.error(request, 'An error occured during registration')
+            
+            
 
-    context = {'form':form}
+    context = {'form':form,
+               'page':'form'}
     return render(request,'core/register.html',context)
 
 def logoutUser(request):

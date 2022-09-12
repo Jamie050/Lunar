@@ -16,15 +16,15 @@
         {% csrf_token %}
         <label>Username</label>
         <input type="text" name="username" placeholder="Enter Username: ">
-
+        <br>
+        <br>
         <label>Password</label>
         <input type="password" name="password" placeholder="Password: ">
 
         <input type="submit" value="login"/>
     </form>
 
-    <p>havent signed up yet</p>
-    <a href="{% url 'register' %}">Sign up</a>
+    <a href="{% url 'register' %}">Dont have an account Signup</a>
 </div>
 
 {% endblock body %}
