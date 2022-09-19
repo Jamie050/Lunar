@@ -1,22 +1,34 @@
 from django.contrib.auth.forms import UserCreationForm
-from .models import User
+from django.contrib.auth.forms import AuthenticationForm 
+from django.forms import ModelForm
+from .models import User,UserProfile,Post
 
 class UserForm(UserCreationForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['username'].labal = 'What would you like to be called'
-        self.fields['email'].labal = 'Enter your email'
-        self.fields['password1'].label = 'Enter a password'
-        self.fields['password2'].label = 'Retype your password'
+        self.fields['username'].label =  'Username'
+        self.fields['password1'].label = 'Password'
+        self.fields['password2'].label = 'Password'
 
         self.fields['username'].help_text = ''
-        self.fields['email'].help_text = ''
         self.fields['password1'].help_text = ''
         self.fields['password2'].help_text = ''
-    
+        
     class Meta:
         model = User
-        fields = ['username','email','password1','password2']
+        fields = ['username','password1','password2']
 
-        
+
+
+class ProfileForm(ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ['avatar','bio']
+
+
+
+class PostForm(ModelForm):
+    class Meta:
+        model = Post
+        fields = ['subject','content',]

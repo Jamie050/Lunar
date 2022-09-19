@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 
+
 {% block title %}
 
-<title>Register</title>
+<title>Login</title>
 
 {% endblock title %}
 
@@ -11,20 +12,17 @@
 
 {% block body %}
 
-<div>
-    <form method="POST" action="">
-        {% csrf_token %}
-        <label>Username</label>
-        <input type="text" name="username" placeholder="Enter Username: ">
-        <br>
-        <br>
-        <label>Password</label>
-        <input type="password" name="password" placeholder="Password: ">
-
-        <input type="submit" value="login"/>
-    </form>
-
-    <a href="{% url 'register' %}">Dont have an account Signup</a>
+<div class="home-container">
+    <div></div>
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            {{  form.as_p}}
+            <input class="button" type="submit" value="login"/>
+        </form>
+        <a href="{% url 'register' %}">Dont have an account Signup</a>
+    </div>
+    <div></div>
 </div>
 
 {% endblock body %}
