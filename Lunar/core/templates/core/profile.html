@@ -20,7 +20,18 @@
             <h2>My Bio</h2>
             <h3>{{profile.bio}}</h3>
         </div>
+        {% if request.user.userprofile.id == profile.id %}
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <input class="button" type="submit" value="Update"/>
+        </form>
+        {% else%}
+
+        {% endif %}
     </div>
+    <div></div>
+    
 </div>
 
 {% endblock body %}

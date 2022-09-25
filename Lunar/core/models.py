@@ -19,6 +19,7 @@ class Post(models.Model):
     author = models.ForeignKey(UserProfile,on_delete=models.CASCADE)
     subject = models.CharField(max_length=200,blank=False,null=False)
     content = models.TextField(max_length=400,blank=False,null=False)
+    thumbnail = models.ImageField(upload_to="post_images",null=True,blank=True)
     updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
 

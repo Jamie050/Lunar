@@ -3,7 +3,6 @@
     padding:0;
     box-sizing: border-box;
 }
-
 .nav{
     background-color: #262626;
     padding:1em;
@@ -13,13 +12,18 @@
     text-decoration: none;
     color:#ffffff;
 }
+
+.nav a:hover{
+    text-decoration: none;
+    color:#8850e4;
+}
 .home-container{
     display:grid;
     grid-template-columns:3fr 3fr 3fr;
 }
 
-.home-container div{
-    margin-top:2em;
+.home-container{
+    margin-top:1em;
 }
 
 input{
@@ -33,9 +37,18 @@ textarea {
     font-size:1.5em;
   }
 
+.feed-container form{
+    margin-bottom: 1em;
+    padding:1em;
+}
+.feed-container form input{
+    margin-bottom: 0.2em;
+}
 .post{
     background-color: #adadad;
     border-radius: 0.25em;
+    word-break: break-all;
+    margin-bottom: 1em;
 }
 
 .post h1{
@@ -47,6 +60,11 @@ textarea {
 
 .post p{
     padding:1em;
+}
+
+.post img{
+    width:100%;
+    height:100%;
 }
 
 .post-heading{
@@ -67,15 +85,20 @@ textarea {
     text-decoration: none;
     color:rgb(255, 255, 255);
 }
+.post-heading a:hover{
+    text-decoration: none;
+    color:#8850e4;
+}
 
 
 .profile-container{
     display:grid;
-    grid-template-columns:4fr 8fr;
+    grid-template-columns:2fr 8fr;
 }
 
 .profile-data{
     padding:2em;
+    width:100%;
 }
 
 .profile-data div{
@@ -87,9 +110,9 @@ textarea {
 }
 
 .profile-data img{
-    border:2px solid #252525;
     border-radius: 1em;
     margin-bottom:1em;
+    width:100%;
 }
 
 
@@ -97,7 +120,7 @@ textarea {
     margin: auto;
     width:50%;
     padding:1em;
-    margin-top:1em;
+    margin-bottom: 1em;
     background-color: #252525;
     color:white;
     border-radius: 1em;
@@ -115,4 +138,8 @@ textarea {
 .user-container div a{
     text-decoration: none;
     color:white;
+}
+.user-container div a:hover{
+    text-decoration: none;
+    color:#8850e4;
 }

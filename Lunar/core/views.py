@@ -1,7 +1,8 @@
+from http.client import HTTPResponse
 from pipes import Template
 import re
 from django.shortcuts import render,redirect
-from .forms import AuthenticationForm,UserForm,PostForm
+from .forms import AuthenticationForm,UserForm,PostForm,ProfileForm
 from .models import User,Post,UserProfile
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
@@ -15,7 +16,7 @@ def home(request):
     if request.user.is_authenticated:
       profile = request.user.userprofile
     if request.method == 'POST':
-         form = PostForm(request.POST)
+         form = PostForm(request.POST,files=request.FILES)
          if form.is_valid():
            post = form.save(commit=False)
            post.author = profile
@@ -76,6 +77,21 @@ def logoutPage(request):
     return redirect('home')
 
 def profilePage(request,user_id):
+    form = ProfileForm()
     profile = UserProfile.objects.get(user_id=user_id)
-    context = {'profile':profile}
+    if request.method == 'POST':
+        if request.user.userprofile.id == profile.id:
+            form = ProfileForm(request.POST, instance=profile, files=request.FILES)
+            if form.is_valid():
+                profile = form.save(commit=True)
+                return redirect('profile',user_id)
+            else:
+                messages.error(request, 'An error has occured')
+
+        else:
+            return HTTPResponse("you are not allowed here")
+
+    context = {'profile':profile,
+               'form':form
+               }
     return render(request,'core/profile.html',context)
