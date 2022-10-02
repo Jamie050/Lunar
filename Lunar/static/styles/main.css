@@ -3,143 +3,118 @@
     padding:0;
     box-sizing: border-box;
 }
+
+body{
+    width:100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+}
+
+
 .nav{
-    background-color: #262626;
-    padding:1em;
+    width:100%;
+    height:6em;
+    background-color: rgb(26, 23, 23);
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
 }
 
 .nav a{
     text-decoration: none;
-    color:#ffffff;
+    color:rgb(255, 255, 255)
 }
 
 .nav a:hover{
-    text-decoration: none;
-    color:#8850e4;
-}
-.home-container{
-    display:grid;
-    grid-template-columns:3fr 3fr 3fr;
+    color:rgb(117, 108, 250)
 }
 
-.home-container{
-    margin-top:1em;
+img{
+    width:100px;
+    height: 100px;
 }
 
 input{
-    width:100%;
     font-size:2em;
-    border-radius: 0.2em;
-}
-textarea {
-    resize: none;
     width:100%;
-    font-size:1.5em;
-  }
-
-.feed-container form{
-    margin-bottom: 1em;
-    padding:1em;
+    margin-top:0.2em;
 }
-.feed-container form input{
-    margin-bottom: 0.2em;
+textarea{
+    font-size:2em;
+    width:100%;
+    resize: none;
+    margin-top: 0.2em;
+}
+/* Below this is page specific code */
+
+
+.home-container{
+    display:grid;
+    grid-template-columns: 2fr 2fr 2fr;
+}
+
+
+
+
+/* This is feed code*/
+.feed-container{
+    padding:1em;
 }
 .post{
-    background-color: #adadad;
-    border-radius: 0.25em;
-    word-break: break-all;
-    margin-bottom: 1em;
-}
-
-.post h1{
+    background-color: rgba(0, 181, 236, 0.1);
     padding:1em;
+    margin:1em;
+    border-radius: 0.5em;
 }
-.post h2{
-    padding:1em;
-}
-
-.post p{
-    padding:1em;
-}
-
-.post img{
-    width:100%;
-    height:100%;
-}
-
-.post-heading{
-    width:100%;
-    display:flex;
-    justify-content: left;
-    align-items: center;
-    background-color: #252525;
-    padding-left:2em;
-}
-
-.post-heading img{
-    margin-right: 1em;
-    border-radius: 1em;
-    width:5em;
-}
-.post-heading a{
+.post a{
     text-decoration: none;
-    color:rgb(255, 255, 255);
+    color:rgb(0, 0, 0)
 }
-.post-heading a:hover{
+.post a:hover{
+    color:rgb(117, 108, 250)
+}
+
+
+/* This is user code*/
+.user-container{
+    padding:1em;
+}
+
+.user{
+    background-color: rgba(0, 181, 236, 0.1);
+    padding:1em;
+    margin:1em;
+    border-radius: 0.5em;
+}
+.user a{
     text-decoration: none;
-    color:#8850e4;
+    color:rgb(0, 0, 0)
+}
+.user a:hover{
+    color:rgb(117, 108, 250)
 }
 
 
+
+/* This is login/register code*/
+.form-container{
+    display: grid;
+    grid-template-columns: 4fr 3fr 4fr;
+    margin-top:16em;
+}
+
+
+
+
+/* This is profile page code*/
 .profile-container{
     display:grid;
-    grid-template-columns:2fr 8fr;
+    grid-template-columns: 1fr 1fr;
+    padding:1em;
 }
-
 .profile-data{
-    padding:2em;
-    width:100%;
-}
-
-.profile-data div{
-    margin-top:1em;
+    background-color: rgba(0, 181, 236, 0.1);
     padding:1em;
-    background-color: #252525;
-    color:white;
-    border-radius: 1em;
-}
-
-.profile-data img{
-    border-radius: 1em;
-    margin-bottom:1em;
-    width:100%;
-}
-
-
-.user-container div{
-    margin: auto;
-    width:50%;
-    padding:1em;
-    margin-bottom: 1em;
-    background-color: #252525;
-    color:white;
-    border-radius: 1em;
-}
-
-.user-container div img{
-    width:100%;
-    padding:1em;
-    border-radius:1.5em;
-}
-.user-container div h1{
-    display:flex;
-    justify-content: center;
-}
-.user-container div a{
-    text-decoration: none;
-    color:white;
-}
-.user-container div a:hover{
-    text-decoration: none;
-    color:#8850e4;
+    margin: 2em;
+    border-radius: 0.5em;
 }

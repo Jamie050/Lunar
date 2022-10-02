@@ -25,7 +25,7 @@ def home(request):
 
     context = {'posts':posts,
                'profiles':profiles,
-               'form':form}
+               'form':form,}
     return render(request,'core/home.html',context)
 
 def loginPage(request):
@@ -79,6 +79,7 @@ def logoutPage(request):
 def profilePage(request,user_id):
     form = ProfileForm()
     profile = UserProfile.objects.get(user_id=user_id)
+    posts = Post.objects.filter(author= profile)
     if request.method == 'POST':
         if request.user.userprofile.id == profile.id:
             form = ProfileForm(request.POST, instance=profile, files=request.FILES)
@@ -92,6 +93,7 @@ def profilePage(request,user_id):
             return HTTPResponse("you are not allowed here")
 
     context = {'profile':profile,
-               'form':form
+               'form':form,
+               'posts':posts,
                }
     return render(request,'core/profile.html',context)
